@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Entspannende Regengeräusche</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #2c3e50;
+      color: white;
+      font-family: 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background: #3498db;
+      border: none;
+      padding: 1rem 2rem;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌧️ Entspannende Regengeräusche</h1>
+  <button id="toggleButton">🔊 Start</button>
+  <audio id="rainAudio" loop>
+    <source src="regen.mp3" type="audio/mpeg" />
+    Dein Browser unterstützt kein Audio.
+  </audio>
+
+  <script>
+    const audio = document.getElementById('rainAudio');
+    const button = document.getElementById('toggleButton');
+
+    let isPlaying = false;
+
+    button.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play();
+        button.textContent = '🔇 Stopp';
+      } else {
+        audio.pause();
+        button.textContent = '🔊 Start';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>
